@@ -6,9 +6,12 @@ How to build a flow that uses actionable messages in Outlook. The who process of
 In this example we will be looking at 3 delivery states. What I mean is you can send the adaptive card and have it render in outlook or teams. Second delivery is an HTTP get or post from a button or link in the adaptive card. And the final delivery state is the ‘autoInvokeAction’ that is triggered every ticket the email is click on to be read. So a complete solution would have 3 different adaptive card syntax. First one does not have ‘autoInvokeAction’ and a button to trigger an inline update. The second card would not have the post. (or it could again but it gets complicated.) but rather the ‘autoInvokeAction’. Then finaly the endpoint of the second card would update the card with fresh data via a get/post from autoInvokeAction. 
 
 
-# Step 1 – Design your base card 
+# Step 1 – Design Card #1 
+There is an adaptable card generic online ide for card generation. There also is one specific to actionable messages which is 1.4 version of adaptive cards. The syntax of the card is slightly different for each delivery platform. The easiest way to get started is to go to Version 1.0 of the actionable message designer. 
 
-There is an adaptable card generic online ide for card generation. There also is one specific to actionable messages which is 1.4 version of adaptive cards. The syntax of the card is slightly different for each delivery platform. 
+https://amdesigner.azurewebsites.net/
+
+
 
 TIPS: 
 
