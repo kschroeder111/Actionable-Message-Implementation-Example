@@ -5,11 +5,32 @@ How to build a flow that uses actionable messages in Outlook. The who process of
 ### Email Delivery using Actionable Messages
 In this example we will be looking at 3 delivery states. What I mean is you can send the adaptive card and have it render in outlook or teams. Second delivery is an HTTP get or post from a button or link in the adaptive card. And the final delivery state is the ‘autoInvokeAction’ that is triggered every ticket the email is click on to be read. So a complete solution would have 3 different adaptive card syntax. First one does not have ‘autoInvokeAction’ and a button to trigger an inline update. The second card would not have the post. (or it could again but it gets complicated.) but rather the ‘autoInvokeAction’. Then finaly the endpoint of the second card would update the card with fresh data via a get/post from autoInvokeAction. 
 
+This example will create a simple Approval workflow and integrate with Outlook shared calendars. Yes we could use the built-in approval workflow in the Power Platform. Using actionable message and adaptive cards (For teams.) we can customize the Approval messages and business rules. An E5 Office 365 license is needed to implment this workflow. 
 
 # Step 1 – Design Card #1 
 There is an adaptable card generic online ide for card generation. There also is one specific to actionable messages which is 1.4 version of adaptive cards. The syntax of the card is slightly different for each delivery platform. The easiest way to get started is to go to Version 1.0 of the actionable message designer. 
 
 https://amdesigner.azurewebsites.net/
+
+You can use a sample card or build one from stratch using the visual tree editor. Additionally you can use Version 2.0 of the actionable message playground but it does not have the visual tree editor. But it does have more advanced examples. Both are excellent tools to paste your flow outputs to see if they render properly. 
+
+https://messagecardplayground.azurewebsites.net/
+
+# Step 2 - Setup your Delivery Agent
+There are many ways to deliver an adaptive card or actionable message. As long as you can send an email with a body you can pass an actionable messages. But those messages will only work in Outlook. In this example we will be using Office 365 in conjunction with a Power Automate Flow. (Note; Logic Apps and Power Apps can also be used.) 
+
+### Identify Data Input Channel
+How will we get data for our workflow. We dont need the data from the user and can hard code values in the actionable messages. In this example we will use a Microsoft Form to collect data inputes for our workflow. Microsoft forms allows you to determine the end user's name, email and other information becuase they are logged in with a license. We dont need to ask their name or email. Or the approving manager's information as well.  
+
+https://forms.office.com/
+
+Create a simple form that has these fields
+
+a. A multi-line text box for comments. 
+b. A date picker for start date.
+c. A date picker for end date. 
+
+The rest of the data inputs will be collected dynamically using the Repondent's email address. 
 
 
 
